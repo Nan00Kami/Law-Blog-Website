@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lex Mercatoria | International Trade Law Dispatch</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #fbfbf9;
+      --card-bg: #ffffff;
+      --text-main: #1a1a1a;
+      --text-muted: #575757;
+      --border: #e8e6e1;
+      --accent: #112233;
+      --accent-gold: #9e7b4f;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header & Navigation */
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(251, 251, 249, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 6rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-tagline {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      line-height: 1.15;
+      font-weight: 600;
+      color: var(--accent);
+      max-width: 820px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      font-weight: 300;
+    }
+
+    /* Feed Layout */
+    .feed-section {
+      padding: 4rem 0;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .article-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    /* Article Card */
+    .post-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      border-radius: 4px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .post-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.05);
+      border-color: #d1cfc7;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-tag {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .post-title {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+
+    .post-summary {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+    }
+
+    .read-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: auto;
+    }
+
+    /* Scroll Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 0;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .post-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">LEX MERCATORIA</a>
+      <ul class="nav-links">
+        <li><a href="#dispatches">Dispatches</a></li>
+        <li><a href="#topics">Jurisdictions</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tagline reveal">International Trade & Investment Law</div>
+      <h1 class="hero-title reveal">Critical commentary on cross-border regimes, WTO dispute settlements, and trade sanctions.</h1>
+      <p class="hero-description reveal">
+        Independent legal analysis dissecting multilateral trade agreements, investor-state disputes, and the intersection of global commerce with state sovereignty.
+      </p>
+    </div>
+  </section>
+
+  <main class="feed-section" id="dispatches">
+    <div class="container">
+      <div class="section-label">Selected Analyses</div>
+      <div class="article-grid">
+
+        <article class="post-card reveal">
+          <div class="meta">
+            <span class="meta-tag">WTO Jurisprudence</span>
+            <span>&bull;</span>
+            <span>September 2026</span>
+          </div>
+          <h2 class="post-title">National Security Exceptions Under Article XXI: The Modern Boundaries of Self-Judging Clauses</h2>
+          <p class="post-summary">
+            Examining how recent tariff escalations and retaliatory trade policies continue to stress the limits of GATT Article XXI(b)(iii), and what panel precedents suggest for non-justiciability claims.
+          </p>
+          <span class="read-link">Read analysis &rarr;</span>
+        </article>
+
+        <article class="post-card reveal">
+          <div class="meta">
+            <span class="meta-tag">ISDS & Bilateral Treaties</span>
+            <span>&bull;</span>
+            <span>August 2026</span>
+          </div>
+          <h2 class="post-title">Regulatory Expropriation vs. Police Powers in Green Transition Measures</h2>
+          <p class="post-summary">
+            A survey of arbitral awards addressing whether aggressive domestic phase-outs of fossil fuel subsidies trigger compensation standards under Fair and Equitable Treatment (FET) clauses.
+          </p>
+          <span class="read-link">Read analysis &rarr;</span>
+        </article>
+
+        <article class="post-card reveal">
+          <div class="meta">
+            <span class="meta-tag">Customs & Supply Chains</span>
+            <span>&bull;</span>
+            <span>July 2026</span>
+          </div>
+          <h2 class="post-title">Cross-Border Carbon Adjustments and Most-Favoured-Nation Compatibility</h2>
+          <p class="post-summary">
+            Assessing the WTO-consistency of border carbon adjustments, analyzing potential justification routes under Article XX(b) and (g) alongside domestic verification frameworks.
+          </p>
+          <span class="read-link">Read analysis &rarr;</span>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <footer id="about">
+    <div class="container footer-content">
+      <div>&copy; 2026 Lex Mercatoria. Published for academic and analytical discourse.</div>
+      <div>Hosted on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
