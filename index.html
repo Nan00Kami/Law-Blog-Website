@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lex Mercatoria | International Trade Law Dispatch</title>
   
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -89,7 +90,7 @@
       color: var(--accent);
     }
 
-    /* Hero */
+    /* Hero / About */
     .hero {
       padding: 6rem 0 4rem;
       border-bottom: 1px solid var(--border);
@@ -121,6 +122,34 @@
       font-weight: 300;
     }
 
+    /* Jurisdictions Section */
+    .jurisdictions-section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tags-container {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .jurisdiction-tag {
+      padding: 0.45rem 0.9rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--accent);
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+      transition: var(--transition);
+    }
+
+    .jurisdiction-tag:hover {
+      border-color: var(--accent-gold);
+      cursor: default;
+    }
+
     /* Feed Layout */
     .feed-section {
       padding: 4rem 0;
@@ -131,7 +160,7 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--text-muted);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       border-bottom: 1px solid var(--border);
       padding-bottom: 0.5rem;
     }
@@ -150,7 +179,6 @@
       transition: var(--transition);
       display: flex;
       flex-direction: column;
-      text-decoration: none;
       color: inherit;
     }
 
@@ -200,6 +228,12 @@
       align-items: center;
       gap: 0.35rem;
       margin-top: auto;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .read-link:hover {
+      color: var(--accent-gold);
     }
 
     /* Scroll Animation */
@@ -243,18 +277,20 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <div class="container nav">
       <a href="#" class="logo">LEX MERCATORIA</a>
       <ul class="nav-links">
-        <li><a href="#dispatches">Dispatches</a></li>
-        <li><a href="#topics">Jurisdictions</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#jurisdictions">Jurisdictions</a></li>
+        <li><a href="#dispatches">Dispatches</a></li>
       </ul>
     </div>
   </header>
 
-  <section class="hero">
+  <!-- About / Hero Section -->
+  <section class="hero" id="about">
     <div class="container">
       <div class="hero-tagline reveal">International Trade & Investment Law</div>
       <h1 class="hero-title reveal">Critical commentary on cross-border regimes, WTO dispute settlements, and trade sanctions.</h1>
@@ -264,11 +300,27 @@
     </div>
   </section>
 
+  <!-- Jurisdictions Section -->
+  <section class="jurisdictions-section reveal" id="jurisdictions">
+    <div class="container">
+      <div class="section-label">Browse by Jurisdiction & Forum</div>
+      <div class="tags-container">
+        <span class="jurisdiction-tag">WTO Dispute Settlement</span>
+        <span class="jurisdiction-tag">Investor-State Arbitration (ICSID)</span>
+        <span class="jurisdiction-tag">European Union & CBAM</span>
+        <span class="jurisdiction-tag">Indo-Pacific & Regional FTAs</span>
+        <span class="jurisdiction-tag">Trade Sanctions & Export Controls</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dispatches Section -->
   <main class="feed-section" id="dispatches">
     <div class="container">
       <div class="section-label">Selected Analyses</div>
       <div class="article-grid">
 
+        <!-- Entry 1 -->
         <article class="post-card reveal">
           <div class="meta">
             <span class="meta-tag">WTO Jurisprudence</span>
@@ -279,9 +331,10 @@
           <p class="post-summary">
             Examining how recent tariff escalations and retaliatory trade policies continue to stress the limits of GATT Article XXI(b)(iii), and what panel precedents suggest for non-justiciability claims.
           </p>
-          <span class="read-link">Read analysis &rarr;</span>
+          <a href="#" class="read-link">Read analysis &rarr;</a>
         </article>
 
+        <!-- Entry 2 -->
         <article class="post-card reveal">
           <div class="meta">
             <span class="meta-tag">ISDS & Bilateral Treaties</span>
@@ -292,9 +345,10 @@
           <p class="post-summary">
             A survey of arbitral awards addressing whether aggressive domestic phase-outs of fossil fuel subsidies trigger compensation standards under Fair and Equitable Treatment (FET) clauses.
           </p>
-          <span class="read-link">Read analysis &rarr;</span>
+          <a href="#" class="read-link">Read analysis &rarr;</a>
         </article>
 
+        <!-- Entry 3 -->
         <article class="post-card reveal">
           <div class="meta">
             <span class="meta-tag">Customs & Supply Chains</span>
@@ -305,14 +359,15 @@
           <p class="post-summary">
             Assessing the WTO-consistency of border carbon adjustments, analyzing potential justification routes under Article XX(b) and (g) alongside domestic verification frameworks.
           </p>
-          <span class="read-link">Read analysis &rarr;</span>
+          <a href="#" class="read-link">Read analysis &rarr;</a>
         </article>
 
       </div>
     </div>
   </main>
 
-  <footer id="about">
+  <!-- Footer -->
+  <footer>
     <div class="container footer-content">
       <div>&copy; 2026 Lex Mercatoria. Published for academic and analytical discourse.</div>
       <div>Hosted on GitHub Pages</div>
@@ -320,7 +375,6 @@
   </footer>
 
   <script>
-    // Smooth scroll reveal animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
