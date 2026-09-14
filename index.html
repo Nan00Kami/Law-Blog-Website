@@ -6,7 +6,7 @@ layout: null
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>International Law Now | Global Legal Dispatch & News</title>
+  <title>International Law Now | Public International Law & Jurisprudence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -15,7 +15,7 @@ layout: null
       --bg: #fbfbf9;
       --card-bg: #ffffff;
       --text-main: #141414;
-      --text-muted: #555555;
+      --text-muted: #575757;
       --border: #e2dfd7;
       --accent: #0f172a;
       --accent-red: #c2410c;
@@ -25,23 +25,22 @@ layout: null
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: var(--bg); color: var(--text-main); font-family: var(--font-sans); line-height: 1.6; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+    
     header { border-bottom: 2px solid var(--accent); position: sticky; top: 0; background: rgba(251, 251, 249, 0.95); backdrop-filter: blur(8px); z-index: 100; }
-    .nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-    .logo { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--accent); text-decoration: none; letter-spacing: -0.02em; }
+    .nav { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+    .logo { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 700; color: var(--accent); text-decoration: none; letter-spacing: -0.02em; }
     .logo span { color: var(--accent-red); }
-    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-    /* Hero / Ticker */
-    .hero { padding: 4.5rem 0 3rem; border-bottom: 1px solid var(--border); }
-    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #fee2e2; color: #991b1b; padding: 0.25rem 0.6rem; border-radius: 2px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+    .hero { padding: 4.5rem 0 3.5rem; border-bottom: 1px solid var(--border); }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #fee2e2; color: #991b1b; padding: 0.25rem 0.6rem; border-radius: 2px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; }
     .hero-badge::before { content: ""; width: 6px; height: 6px; background: #dc2626; border-radius: 50%; }
-    .hero-title { font-family: var(--font-serif); font-size: 2.85rem; line-height: 1.2; font-weight: 700; color: var(--accent); max-width: 900px; margin-bottom: 1rem; }
+    .hero-title { font-family: var(--font-serif); font-size: 2.75rem; line-height: 1.2; font-weight: 700; color: var(--accent); max-width: 860px; margin-bottom: 1.25rem; }
     .hero-description { font-size: 1.15rem; color: var(--text-muted); max-width: 720px; font-weight: 400; line-height: 1.6; }
 
-    /* Category Filter */
     .filter-section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
     .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1.25rem; }
     .tags-container { display: flex; gap: 0.5rem; flex-wrap: wrap; }
@@ -60,29 +59,33 @@ layout: null
     .filter-btn:hover { border-color: var(--accent); }
     .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    /* Feed Layout */
-    .feed-section { padding: 3.5rem 0; }
+    .feed-section { padding: 3.5rem 0 4.5rem; }
+    .feed-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
+    .feed-header .section-label { margin-bottom: 0; }
+    .view-all-link { font-size: 0.82rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; color: var(--accent-red); text-decoration: none; }
+    .view-all-link:hover { text-decoration: underline; }
+
     .article-grid { display: grid; gap: 2rem; }
     .post-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      padding: 2rem;
+      padding: 2.25rem;
       border-radius: 3px;
       transition: var(--transition);
       display: flex;
       flex-direction: column;
     }
-    .post-card:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -8px rgba(0,0,0,0.06); border-color: #bbb; }
+    .post-card:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -8px rgba(0,0,0,0.06); border-color: #b5b2aa; }
     .post-card.hidden { display: none; }
     .meta { display: flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.04em; }
     .meta-tag { color: var(--accent-red); font-weight: 700; }
-    .post-title { font-family: var(--font-serif); font-size: 1.6rem; line-height: 1.3; margin-bottom: 0.65rem; color: var(--accent); }
-    .post-summary { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.2rem; }
+    .post-title { font-family: var(--font-serif); font-size: 1.65rem; line-height: 1.3; margin-bottom: 0.75rem; color: var(--accent); }
+    .post-summary { color: var(--text-muted); font-size: 0.96rem; line-height: 1.6; margin-bottom: 1.25rem; }
     .read-link { font-size: 0.85rem; font-weight: 700; color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; margin-top: auto; text-decoration: none; }
     .read-link:hover { color: var(--accent-red); }
 
     #empty-state { display: none; padding: 3rem 0; color: var(--text-muted); font-style: italic; }
-    footer { border-top: 1px solid var(--border); padding: 3rem 0; margin-top: 4rem; font-size: 0.85rem; color: var(--text-muted); }
+    footer { border-top: 1px solid var(--border); padding: 3rem 0; font-size: 0.85rem; color: var(--text-muted); }
   </style>
 </head>
 <body>
@@ -90,29 +93,28 @@ layout: null
     <div class="container nav">
       <a href="{{ '/' | relative_url }}" class="logo">INTERNATIONAL LAW <span>NOW</span></a>
       <ul class="nav-links">
-        <li><a href="#feed">Latest Reports</a></li>
-        <li><a href="#topics">Beats</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="{{ '/' | relative_url }}" class="active">Home</a></li>
+        <li><a href="{{ '/repository/' | relative_url }}">Repository</a></li>
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
       </ul>
     </div>
   </header>
 
-  <section class="hero" id="about">
+  <section class="hero">
     <div class="container">
-      <div class="hero-badge">Global Wire</div>
-      <h1 class="hero-title">Real-time dispatches on ICJ rulings, state responsibility, and international disputes.</h1>
+      <div class="hero-badge">Dispatch Wire</div>
+      <h1 class="hero-title">Doctrinal jurisprudence, advisory proceedings, and state responsibility under international law.</h1>
       <p class="hero-description">
-        Fast-paced, rigorous legal reporting translating complex multilateral cases, treaties, and public international law doctrines into actionable intelligence.
+        Rigorous legal reporting dissecting the ICJ docket, maritime delimitations, international humanitarian law, and global dispute resolution regimes.
       </p>
     </div>
   </section>
 
-  <!-- Filter Beats -->
-  <section class="filter-section" id="topics">
+  <section class="filter-section">
     <div class="container">
-      <div class="section-label">Filter by Beat</div>
+      <div class="section-label">Filter by Forum</div>
       <div class="tags-container">
-        <button class="filter-btn active" data-filter="all">All Coverage</button>
+        <button class="filter-btn active" data-filter="all">All Forums</button>
         <button class="filter-btn" data-filter="ICJ & Adjudication">ICJ & Adjudication</button>
         <button class="filter-btn" data-filter="State Responsibility & Sovereignty">State Responsibility & Sovereignty</button>
         <button class="filter-btn" data-filter="Law of the Sea (UNCLOS)">Law of the Sea (UNCLOS)</button>
@@ -122,11 +124,14 @@ layout: null
     </div>
   </section>
 
-  <main class="feed-section" id="feed">
+  <main class="feed-section">
     <div class="container">
-      <div class="section-label">Recent Intelligence</div>
+      <div class="feed-header">
+        <div class="section-label">Recent Articles</div>
+        <a href="{{ '/repository/' | relative_url }}" class="view-all-link">Browse Full Repository &rarr;</a>
+      </div>
       <div class="article-grid">
-        {% for post in site.posts %}
+        {% for post in site.posts limit: 5 %}
         <article class="post-card" data-jurisdiction="{{ post.jurisdiction }}">
           <div class="meta">
             <span class="meta-tag">{{ post.jurisdiction }}</span>
@@ -135,17 +140,17 @@ layout: null
           </div>
           <h2 class="post-title">{{ post.title }}</h2>
           <p class="post-summary">{{ post.summary }}</p>
-          <a href="{{ post.url | relative_url }}" class="read-link">Read full report &rarr;</a>
+          <a href="{{ post.url | relative_url }}" class="read-link">Read full analysis &rarr;</a>
         </article>
         {% endfor %}
       </div>
-      <div id="empty-state">No active reports filed under this beat yet.</div>
+      <div id="empty-state">No recent articles published under this forum.</div>
     </div>
   </main>
 
   <footer>
     <div class="container">
-      &copy; {{ site.time | date: "%Y" }} International Law Now. Rapid reporting on public international law & global dispute regimes.
+      &copy; {{ site.time | date: "%Y" }} International Law Now. Published for academic, institutional, and doctrinal discourse.
     </div>
   </footer>
 
